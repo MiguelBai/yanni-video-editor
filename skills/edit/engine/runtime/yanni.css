@@ -1,0 +1,71 @@
+/* Paper-cut talking head style. Every number here was measured off the
+   reference reel at 1080x1920. Change the look in brand.json, not here. */
+
+@font-face { font-family: "YInter"; src: url("fonts/Inter.ttf") format("truetype"); font-weight: 100 900; }
+@font-face { font-family: "YMont"; src: url("fonts/Montserrat.ttf") format("truetype"); font-weight: 100 900; }
+
+:root {
+  --accent: #d6192b;
+  --ink: #141414;
+  --cap-top: 1405px;
+}
+
+html, body { margin: 0; padding: 0; background: #000; }
+#root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+#root * { box-sizing: border-box; }
+
+/* camera (talking head) */
+#cam { position: absolute; inset: 0; transform-origin: 50% 38%; }
+#cam video { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+
+/* paper beats */
+.paper { position: absolute; inset: 0; overflow: hidden; }
+.paperbg { position: absolute; left: -110px; top: -190px; width: 1300px; height: 2300px; background-size: 1300px 2300px; }
+.shot { position: absolute; inset: 0; }
+.hdr {
+  position: absolute; left: 200px; width: 680px; top: 360px; text-align: center;
+  font: 500 58px/1.34 "YInter", sans-serif; letter-spacing: -0.2px; color: #fff;
+}
+.hdr span {
+  background: #0b0b0b; padding: 2px 16px 4px; border-radius: 9px;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+
+.it { position: absolute; }
+.it .sharp, .it .smear, .it .sl { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+.it img { display: block; width: 100%; height: 100%; }
+.it .smear { opacity: 0; }
+.it .smear.v { filter: url(#mbv); }
+.it .smear.h { filter: url(#mbh); }
+.it .smear.z { filter: blur(16px); }
+.it .sl { opacity: 0; }
+
+.cutout img { filter: drop-shadow(0 16px 18px rgba(0, 0, 0, 0.28)); }
+.mono img { filter: grayscale(1) contrast(1.15) brightness(1.02); }
+.cutout.mono img { filter: grayscale(1) contrast(1.15) brightness(1.02) drop-shadow(0 16px 18px rgba(0, 0, 0, 0.28)); }
+.card .face { position: absolute; inset: 0; background: #fff; box-shadow: 0 14px 26px rgba(0, 0, 0, 0.38), 0 2px 5px rgba(0, 0, 0, 0.2); overflow: hidden; }
+.card img { width: 100%; height: 100%; object-fit: cover; }
+
+.txt { display: flex; align-items: center; justify-content: center; text-align: center; white-space: nowrap; }
+.label .txt { font: 700 74px/1 "YMont", sans-serif; color: var(--ink); letter-spacing: -0.5px; }
+.stat .txt { font: 800 86px/1 "YMont", sans-serif; color: var(--accent); letter-spacing: -1px; }
+.big .txt { font: 900 120px/1 "YMont", sans-serif; color: var(--ink); letter-spacing: -2px; }
+
+/* brand stamp on face beats */
+.stamp { position: absolute; inset: 0; }
+.st { position: absolute; left: 0; width: 1080px; text-align: center; white-space: nowrap;
+  font: 900 158px/1 "YMont", sans-serif; letter-spacing: -3px; text-transform: uppercase; }
+.st .sharp, .st .smear { display: block; width: 100%; }
+.st .smear { position: absolute; left: 0; top: 0; opacity: 0; filter: url(#mbh); }
+.st1, .st1e { color: #fff; text-shadow: 0 4px 18px rgba(0, 0, 0, 0.35); }
+.st2 { color: var(--accent); text-shadow: 0 4px 18px rgba(0, 0, 0, 0.3); }
+
+/* captions: word by word, top anchored so new lines grow downward */
+.caps { position: absolute; inset: 0; pointer-events: none; }
+.pg {
+  position: absolute; left: 190px; width: 700px; top: var(--cap-top); text-align: center;
+  font: 600 47px/1.2 "YInter", sans-serif; letter-spacing: -0.4px; color: #fff;
+  -webkit-text-stroke: 5.5px rgba(10, 10, 10, 0.9); paint-order: stroke fill;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+}
+.pg .w { opacity: 0; }

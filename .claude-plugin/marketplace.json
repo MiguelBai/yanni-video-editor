@@ -1,0 +1,14 @@
+{
+  "name": "yanni-video-editor",
+  "description": "Yanni's video editor: one plugin that turns talking head takes into paper cut science reels.",
+  "owner": {
+    "name": "Miguel Barbosa (ManyFai)"
+  },
+  "plugins": [
+    {
+      "name": "yanni-editor",
+      "source": "./",
+      "description": "Paper cut science reel editor for talking head videos (HyperFrames)."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "yanni-editor",
+  "version": "1.0.0",
+  "description": "Paper cut science reel editor: talking head intercut with crumpled paper scenes, real study pages, cut out objects and word by word captions. Built on HyperFrames.",
+  "author": {
+    "name": "Miguel Barbosa (ManyFai)"
+  },
+  "keywords": [
+    "video",
+    "reels",
+    "editing",
+    "hyperframes",
+    "captions"
+  ]
+}
